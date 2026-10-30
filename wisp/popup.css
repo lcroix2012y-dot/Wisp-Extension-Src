@@ -1,0 +1,25 @@
+:root{--bg:#171233;--panel:#221b4a;--ink:#f3f0ff;--mute:#a79fd6;--v:#8b7cff;--p:#ff8fc8;--line:#ffffff14}
+*{box-sizing:border-box;margin:0}
+body{width:340px;background:radial-gradient(120% 70% at 50% 0,#3a2c86 0,var(--bg) 62%);color:var(--ink);font:14px/1.4 ui-rounded,"SF Pro Rounded","Segoe UI Variable","Segoe UI",system-ui,sans-serif}
+header{display:flex;align-items:center;gap:10px;padding:16px 18px 0}
+.logo{width:26px;height:26px;filter:drop-shadow(0 0 8px #8b7cff99)}
+header b{font-size:18px;letter-spacing:.3px}
+#host{margin-left:auto;color:var(--mute);font-size:12px;max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hero{text-align:center;padding:22px 0 14px}
+#count{font-size:76px;font-weight:700;line-height:1;background:linear-gradient(180deg,#fff,#b9adff);-webkit-background-clip:text;color:transparent;font-variant-numeric:tabular-nums}
+.hero p{color:var(--mute);margin-top:6px}
+.split{display:flex;justify-content:center;gap:22px;color:var(--mute);font-size:13px;padding-bottom:16px}
+.split span{color:var(--ink);font-weight:600}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+.ads{background:var(--p)}.trk{background:var(--v)}
+.row{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 14px 10px;padding:13px 14px;background:var(--panel);border:1px solid var(--line);border-radius:16px;cursor:pointer}
+.row:last-child{margin-bottom:16px}
+.row strong{display:block;font-weight:600}.row small{color:var(--mute);font-size:12px}
+.row input{position:absolute;opacity:0}
+.sw{flex:none;width:44px;height:26px;border-radius:13px;background:#3a3270;position:relative;transition:background .2s}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .2s}
+input:checked+.sw{background:linear-gradient(90deg,var(--v),var(--p))}
+input:checked+.sw::after{transform:translateX(18px)}
+input:focus-visible+.sw{outline:2px solid #fff;outline-offset:2px}
+input:disabled+.sw{opacity:.35}
+@media(prefers-reduced-motion:reduce){.sw,.sw::after{transition:none}}

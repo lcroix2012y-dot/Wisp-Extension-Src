@@ -1,0 +1,67 @@
+{
+  "manifest_version": 3,
+  "name": "Wisp",
+  "version": "1.4.0",
+  "description": "Bloque pubs et traqueurs. Surfez l\u00e9ger, comme un fant\u00f4me.",
+  "permissions": [
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "activeTab",
+    "storage",
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "wisp",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Wisp",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/16.png",
+      "48": "icons/48.png",
+      "128": "icons/128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "guard.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true,
+      "world": "MAIN",
+      "match_origin_as_fallback": true
+    },
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "cosmetic.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_origin_as_fallback": true
+    }
+  ]
+}
